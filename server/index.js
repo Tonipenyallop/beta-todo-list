@@ -2,7 +2,8 @@ const express = require("express");
 const cors = require("cors");
 const path = require("path");
 const knex = require("knex");
-const config = "development";
+const config =
+  process.env.NODE_ENV === "production" ? "production" : "development";
 const setting = require("../knexfile")[config];
 const db = knex(setting);
 
